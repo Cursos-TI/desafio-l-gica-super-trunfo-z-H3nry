@@ -17,6 +17,7 @@ double SuperPoder(double NumeroDaPopulação,double PIB,float Area,int PontosTur
 
 
 int main() {
+    //**[Atividade nível Basico]*
 
     //Obs: O Codigo funcionou no VScode | menos no github CodesSpace
 
@@ -153,9 +154,28 @@ int main() {
     //Fazer a comparação das informações das 2 cartas, pra no final decidir o vencedor.
     int PontosPraCidade1 = 0;
     int PontosPraCidade2 = 0;
+    int TerminarMinigame = 0; //1 = true , 0 = fals
+    int Comparar = 0;
 
 
-    //Densidade
+    //while (TerminarMinigame < 1) {
+    
+
+    printf("\n \n=----------------------------------------------------= \n");
+    printf("Quais valores pretende comparar?\n");
+    printf("1. Densidade Populacional\n");
+    printf("2. Numero Populacional\n");
+    printf("3. Pontos Turisticos\n");
+    printf("4. Area\n");
+    printf("5. PIB\n");
+    printf("6. PIB por capital\n");
+    printf("7. Super Poder (a soma de tudo)\n");
+    printf("=----------------------------------------------------= \n \n \n");
+    scanf("%d",&Comparar);
+
+
+    switch (Comparar) {
+    case 1:
     printf("\n \n=----------------------------------------------------= \n");
     if (DensidadePopulacional_DaCidade1 < DensidadePopulacional_DaCidade2){
         PontosPraCidade1++;
@@ -168,11 +188,11 @@ int main() {
         printf("Ambas as cidades tiveram empate na Densidade populacional \n");
        }
     }
-    printf("=----------------------------------------------------= \n \n");
-
-
-    //Numero da população
     printf("=----------------------------------------------------= \n");
+    break;
+
+    case 2:
+     printf("\n \n=----------------------------------------------------= \n");
     if (NumeroDaPopulação_daCidade1 > NumeroDaPopulação_daCidade2){
         PontosPraCidade1++;
         printf("%s Ganhou na questão populacional com: %.1f \n",NomeDaCidade1,NumeroDaPopulação_daCidade1);
@@ -185,26 +205,27 @@ int main() {
        }
     }
     printf("=----------------------------------------------------= \n \n");
+    break;
 
-
-    //Numero de pontos turisticos
-    printf("=----------------------------------------------------= \n");
+    case 3:
+     printf("\n \n=----------------------------------------------------= \n");
     if (NumeroDePontosTuristicos_daCidade1 > NumeroDePontosTuristicos_daCidade2){
         PontosPraCidade1++;
-        printf("%s Ganhou na questão dos Pontos turisticos com: %.1f \n",NomeDaCidade1,NumeroDePontosTuristicos_daCidade1);
+        printf("%s Ganhou na questão dos Pontos turisticos com: %d \n",NomeDaCidade1,NumeroDePontosTuristicos_daCidade1);
     } else {
        if (NumeroDePontosTuristicos_daCidade2 > NumeroDePontosTuristicos_daCidade1) {
            PontosPraCidade2++; 
-           printf("%s Ganhou na questão dos Pontos turisticos com: %.1f \n",NomeDaCidade2,NumeroDePontosTuristicos_daCidade2);
+           printf("%s Ganhou na questão dos Pontos turisticos com: %d \n",NomeDaCidade2,NumeroDePontosTuristicos_daCidade2);
        } else {
         printf("Ambas as cidades tiveram empate nos Pontos turisticos \n");
        }
     }
     printf("=----------------------------------------------------= \n \n");
+    break;
 
-
+    case 4:
     //Area
-    printf("=----------------------------------------------------= \n");
+    printf("\n \n=----------------------------------------------------= \n");
     if (Area_DaCidade1 > Area_DaCidade2){
         PontosPraCidade1++;
         printf("%s Ganhou na questão da Area(km2) com: %.1f \n",NomeDaCidade1,Area_DaCidade1);
@@ -217,10 +238,10 @@ int main() {
        }
     }
     printf("=----------------------------------------------------= \n \n");
+    break;
 
-
-    //PIB
-    printf("=----------------------------------------------------= \n");
+    case 5:
+    printf("\n \n=----------------------------------------------------= \n");
     if (PIB_daCidade1 > PIB_daCidade2){
         PontosPraCidade1++;
         printf("%s Ganhou na questão do PIB com: %.1f \n",NomeDaCidade1,PIB_daCidade1);
@@ -233,10 +254,10 @@ int main() {
        }
     }
     printf("=----------------------------------------------------= \n \n");
+    break;
 
-
-    //PIB por capital
-    printf("=----------------------------------------------------= \n");
+    case 6:
+    printf("\n \n=----------------------------------------------------= \n");
     if (PIB_DasCapitais_DaCidade1 > PIB_DasCapitais_DaCidade2){
         PontosPraCidade1++;
         printf("%s Ganhou na questão do PIB por capital com: %.1f \n",NomeDaCidade1,PIB_DasCapitais_DaCidade1);
@@ -248,10 +269,11 @@ int main() {
         printf("Ambas as cidades tiveram empate no PIB das Capitais \n");
        }
     }
-    printf("=----------------------------------------------------= \n \n");
+    printf("\n \n=----------------------------------------------------= \n \n");
+    break;
 
-    //Super poder
-    printf("=----------------------------------------------------= \n");
+    case 7:
+    printf("\n \n=----------------------------------------------------= \n");
     if (SuperPoder_DaCidade1 > SuperPoder_DaCidade2){
         PontosPraCidade1++;
         printf("%s Ganhou na questão do Super poder com: %.1f \n",NomeDaCidade1,SuperPoder_DaCidade1);
@@ -264,9 +286,18 @@ int main() {
        }
     }
     printf("=----------------------------------------------------= \n \n");
+    break;
+    
+    default:
+    printf("Opção invalida!");
+    break;
+    }
+
+    //}
 
     //Vencedor
-    if (PontosPraCidade1 < PontosPraCidade2){
+
+    /*if (PontosPraCidade1 < PontosPraCidade2){
         printf("=----------------------------------------------------= \n");
         printf("(%s) %d : %d (%s)",NomeDaCidade1,PontosPraCidade1,PontosPraCidade2,NomeDaCidade2);
         printf("%s (cidade1/carta1) Venceu com: %d pontos \n",NomeDaCidade1,PontosPraCidade1);
@@ -282,7 +313,7 @@ int main() {
             printf("(%s) %d : %d (%s) - Empate \n",NomeDaCidade1,PontosPraCidade1,PontosPraCidade2,NomeDaCidade2);
             printf("=----------------------------------------------------=");
         }
-    }
+    }*/
 
     return 0;
 }
